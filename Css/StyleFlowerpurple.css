@@ -1,0 +1,147 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/textured_paper_%402X.png);
+    background-blend-mode: multiply;
+    background-color: #e2d8d0;
+    background-repeat: repeat;
+    background-size: cover; /* Ajustar la imagen de fondo al tamaño de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+svg {
+    height: 80vh; /* Altura relativa a la altura de la pantalla */
+    width: 80vw; /* Ancho relativo al ancho de la pantalla */
+    max-width: 100%; /* Evitar que el SVG se desborde en pantallas pequeñas */
+    opacity: 0.9;
+}
+
+#illustration {
+    animation: squigglevision 0.5s infinite alternate;
+}
+
+@keyframes squigglevision {
+    0% {
+        filter: url('#sketch-0');
+    }
+    25% {
+        filter: url('#sketch-1');
+    }
+    50% {
+        filter: url('#sketch-2');
+    }
+    75% {
+        filter: url('#sketch-3');
+    }
+    100% {
+        filter: url('#sketch-4');
+    }
+}
+
+.path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: paint 1s ease-in-out 1s forwards;
+}
+
+.path:nth-of-type(2) {
+    animation-delay: 2s;
+}
+
+/* Estilos del botón */
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #171717;
+    padding: 1em 2em;
+    border: none;
+    border-radius: .6rem;
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde la parte inferior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centrado horizontal */
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+button span:not(:nth-child(6)) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 30px;
+    background-color: #e06cfd;
+    border-radius: 50%;
+    transition: .6s ease;
+}
+
+button span:nth-child(6) {
+    position: relative;
+}
+
+button span:nth-child(1) {
+    transform: translate(-3.3em, -4em);
+}
+
+button span:nth-child(2) {
+    transform: translate(-6em, 1.3em);
+}
+
+button span:nth-child(3) {
+    transform: translate(-.2em, 1.8em);
+}
+
+button span:nth-child(4) {
+    transform: translate(3.5em, 1.4em);
+}
+
+button span:nth-child(5) {
+    transform: translate(3.5em, -3.8em);
+}
+
+button:hover span:not(:nth-child(6)) {
+    transform: translate(-50%, -50%) scale(4);
+    transition: 1.5s ease;
+}
+
+@keyframes paint {
+    from {
+        stroke-dashoffset: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Media Queries para dispositivos móviles y tablets */
+@media (max-width: 768px) {
+    svg {
+        height: 60vh; /* Reducir la altura en dispositivos más pequeños */
+        width: 90vw; /* Ajustar el ancho en dispositivos más pequeños */
+    }
+
+    button {
+        padding: 0.8em 1.5em; /* Reducir el padding en pantallas más pequeñas */
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+        
+    }
+}
+
+@media (max-width: 480px) {
+    svg {
+        height: 50vh; /* Reducir aún más la altura en móviles pequeños */
+        width: 95vw; /* Ajustar el ancho en móviles pequeños */
+    }
+
+    button {
+        padding: 0.6em 1.2em; /* Reducir aún más el padding en móviles pequeños */
+        font-size: 12px; /* Reducir aún más el tamaño de la fuente */
+        bottom: 160px; /* Ajustar la distancia desde la parte inferior */
+    }
+}

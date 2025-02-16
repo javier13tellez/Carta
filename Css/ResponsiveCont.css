@@ -1,0 +1,65 @@
+/* Estilos para aplicar un zoom del 50% en pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+      transform: scale(0.5); /* Aplica un zoom del 50% */
+      transform-origin: top left; /* Ajusta el punto de origen de la transformación */
+      width: 200%; /* Compensa el zoom para que la página no se desplace */
+      height: 200%; /* Compensa el zoom para que la página no se desplace */
+      overflow: hidden; /* Evita que se desborde el contenido */
+    }
+  
+    .welcome {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  
+    .pinkbox {
+      width: 90%;
+      max-width: none;
+      margin: 0 auto;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+  
+    .leftbox, .rightbox {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+    }
+  
+    .flower {
+      width: 80px;
+      height: 80px;
+      margin: 10px auto;
+    }
+  
+    .smaller {
+      width: 60px;
+      height: 70px;
+    }
+  
+    button {
+      width: 100%;
+      max-width: 200px;
+      padding: 8px;
+      font-size: 0.8em;
+      margin: 10px auto;
+    }
+  
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 5px;
+    }
+  }
+  
+  /* Ajustes adicionales para pantallas muy pequeñas (ej: móviles en orientación vertical) */
+  @media (max-width: 480px) {
+    .container {
+      transform: scale(0.4); /* Aplica un zoom del 40% */
+      width: 250%; /* Compensa el zoom para que la página no se desplace */
+      height: 250%; /* Compensa el zoom para que la página no se desplace */
+    }
+  }

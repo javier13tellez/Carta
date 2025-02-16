@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport para responsive -->
+    <title>Sunflowers</title>
+    <link rel="stylesheet" href="Css/modal.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(10, 51, 0); 
+            background: linear-gradient(0deg, rgba(255, 231, 7, 1) 0%, rgba(10, 51, 0, 1) 100%); /* Degradado vertical */
+            opacity: 1;
+            animation: appear 20s;
+        }
+
+        @keyframes appear {
+            0% {
+                opacity: 0.5;
+                background: rgb(10, 20, 0);
+            }
+            80% {
+                background: yellow;
+            }
+        }
+
+        /* Media Queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+        }
+
+        /* Asegurar que el canvas ocupe todo el espacio disponible */
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Canvas detrás del botón */
+        }
+
+        /* Estilos para el botón "Regresar" */
+        .Regresar {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: white;
+            background-color: #171717;
+            padding: 1em 2em;
+            border: none;
+            border-radius: .6rem;
+            position: fixed; /* Fijo en la pantalla */
+            bottom: 20px; /* Colocado en la parte inferior */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Centrado exacto */
+            z-index: 2; /* Por encima del canvas */
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .Regresar span:not(:nth-child(6)) {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 30px;
+            width: 30px;
+            color: #171717;
+            background-color: #c2b500;
+            border-radius: 50%;
+            transition: .6s ease;
+        }
+
+        .Regresar span:nth-child(6) {
+            position: relative;
+        }
+
+        .Regresar span:nth-child(1) {
+            transform: translate(-3.3em, -4em);
+        }
+
+        .Regresar span:nth-child(2) {
+            transform: translate(-6em, 1.3em);
+        }
+
+        .Regresar span:nth-child(3) {
+            transform: translate(-.2em, 1.8em);
+        }
+
+        .Regresar span:nth-child(4) {
+            transform: translate(3.5em, 1.4em);
+        }
+
+        .Regresar span:nth-child(5) {
+            transform: translate(3.5em, -3.8em);
+        }
+
+        .Regresar:hover span:not(:nth-child(6)) {
+            transform: translate(-50%, -50%) scale(4);
+            transition: 1.5s ease;
+        }
+
+        /* Estilos responsivos para el botón */
+        @media (max-width: 768px) {
+            .Regresar {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Regresar {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<div class="popup">
+    <div class="close-btn">&times;</div>
+    <h1>El Brillo del Girasol, Más Allá de las Estrellas</h1>
+    <p>Quiero que brilles como los girasoles al sol, tan radiantes que hasta las estrellas envidien tu luz, porque eres y siempre serás el resplandor en la oscuridad.🌻✨</p>
+</div>
+  <script src="js/modal.js"></script>
+<body>
+
+    <!-- Botón "Regresar" -->
+    <button class="Regresar" onclick="window.location.href='Contenido.html'">
+        <span class="circle1"></span>
+        <span class="circle2"></span>
+        <span class="circle3"></span>
+        <span class="circle4"></span>
+        <span class="circle5"></span>
+        <span class="text">Regresar</span>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="js/AnimationFlowers.js"></script> 
+</body>
+</html>

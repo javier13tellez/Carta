@@ -1,0 +1,111 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body style */
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Popup container */
+.popup {
+    position: fixed;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(129, 126, 126, 0.15);
+    box-shadow: inset 0px 0px 20px 5px rgba(73, 73, 73, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 450px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    z-index: 1000;
+    transition: top 0ms ease-in-out 300ms,
+                opacity 300ms ease-in-out 0ms,
+                transform 300ms ease-in-out 0ms;
+}
+
+/* Popup active state */
+.popup.active {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: top 0ms ease-in-out 0ms,
+                opacity 300ms ease-in-out 0ms,
+                transform 300ms ease-in-out 0ms;
+}
+
+/* Close button inside the popup */
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+    color: #9b0000;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Popup header */
+.popup h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 10px 0px 20px;
+    color: #fff;
+}
+
+/* Popup paragraph */
+.popup p {
+    color: #fdfdfd;
+    font-size: 17px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* For tablets and smaller laptops */
+    .popup {
+        width: 80%; /* Decrease width */
+        padding: 15px 20px; /* Adjust padding */
+    }
+
+    .popup h1 {
+        font-size: 20px; /* Smaller title */
+    }
+
+    .popup p {
+        font-size: 14px; /* Smaller text */
+    }
+}
+
+@media (max-width: 480px) {
+    /* For smartphones */
+    .popup {
+        width: 90%; /* Make the popup even smaller */
+        padding: 10px 15px; /* Adjust padding further */
+    }
+
+    .popup h1 {
+        font-size: 18px; /* Even smaller title */
+    }
+
+    .popup p {
+        font-size: 12px; /* Even smaller text */
+    }
+
+    .popup .close-btn {
+        width: 20px; /* Smaller close button */
+        height: 20px;
+        font-size: 14px;
+    }
+}
